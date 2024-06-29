@@ -4,9 +4,10 @@ jobs:
     version-identifier:
         runs-on: ubuntu-latest
         steps:
+          - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+          - run: echo "🎉 name of the image is  ${{ github.event.repository.name }}" 
           - name: set version identifier
             run: echo "VERSION_IDENTIFIER=0.1.${GITHUB_RUN_NUMBER}_${GITHUB_RUN_ATTEMPT}_${GITHUB_SHA:0:7}" | tee $GITHUB_ENV
         outputs:
           version_identifier: ${{ env.VERSION_IDENTIFIER }}
-          - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-          - run: echo "🎉 name of the image is  ${{ github.event.repository.name }}" 
+          
